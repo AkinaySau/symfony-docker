@@ -1,5 +1,6 @@
 version: '3.7'
 services:
+    #Server#############################################################
     php:
         build: ./docker/php/
         restart: always
@@ -19,6 +20,7 @@ services:
         - ./app:/var/www/app
         ports:
         - 8080:80
+    #Assets#############################################################
 
     #DB#################################################################
     db:
@@ -28,12 +30,14 @@ services:
         - ./db:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: example
-    #            MYSQL_DATABASE: db
-    #            MYSQL_USER: db
-    #            MYSQL_PASSWORD: db
+            MYSQL_DATABASE: db
+            MYSQL_USER: db
+            MYSQL_PASSWORD: db
     adminer:
         image: adminer
         restart: always
+        volumes:
+        - ./docker/adminer/adminer.css:/var/www/html/adminer.css
         depends_on:
         - db
         ports:
