@@ -1,7 +1,8 @@
-version: 2
+version: '3.7'
 services:
     php:
         build: ./docker/php/
+        restart: always
         environment:
             TIMEZONE: Europe/Moscow
         volumes:
@@ -10,11 +11,34 @@ services:
         working_dir: /var/www/app
     webserver:
         image: nginx:1.15
+        restart: always
         depends_on:
-        - php
-        volumes_from:
         - php
         volumes:
         - ./docker/nginx/app.conf:/etc/nginx/conf.d/default.conf:ro
+        - ./app:/var/www/app
         ports:
         - 8080:80
+
+    #DB#################################################################
+    db:
+        image: mariadb
+        restart: always
+        volumes:
+        - ./db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: example
+    #            MYSQL_DATABASE: db
+    #            MYSQL_USER: db
+    #            MYSQL_PASSWORD: db
+    adminer:
+        image: adminer
+        restart: always
+        depends_on:
+        - db
+        ports:
+        - 8090:8080
+
+volumes:
+    app:
+    db:
