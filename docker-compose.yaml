@@ -27,7 +27,8 @@ services:
         image: mariadb
         restart: always
         volumes:
-        - ./db:/var/lib/mysql
+        - db:/var/lib/mysql # а вот тут я не понял O_o / при попытке прописать относительный путь хоста(./) меня посылает
+        - ./docker/mariadb/conf.d:/etc/mysql/conf.d
         environment:
             MYSQL_ROOT_PASSWORD: example
             MYSQL_DATABASE: db
