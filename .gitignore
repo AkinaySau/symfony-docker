@@ -1,5 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
+node_modules
 
+#app
+/app/public/js
+/app/public/css
+/app/public/images
+/app/public/medias
 
 # IntelliJ project files
 .idea
+

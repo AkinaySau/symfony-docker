@@ -1,0 +1,4 @@
+ - add dockerfile for automatic build webpack 
+ - add scripts for run dev and build
+ - add run console for php container, for using commands
+ - test css media and images 

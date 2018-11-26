@@ -1,9 +1,15 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: sau
- * Date: 09.11.2018
- * Time: 22:07
- */
-
-phpinfo();
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="js/site.min.js"></script>
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<?php echo '<h1>Test h1</h1>' ?>
+<div id="app"></div>
+</body>
+</html>
